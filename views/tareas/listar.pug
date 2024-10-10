@@ -1,0 +1,67 @@
+extends ../index
+
+block content
+    h2 Lista de Tareas
+    a(href='/tareas/crear', class='btn btn-success mb-3') Crear Nueva Tarea
+
+    // Tabla de tareas
+    table.table.table-striped.table-bordered
+        thead
+            tr
+                th Área
+                th ID
+                th Título
+                th Descripción
+                th Estado
+                th Prioridad
+                th Usuario Asignado
+                th Fecha de Creación
+                th Fecha de Vencimiento
+                th Acciones
+        tbody
+            each tarea in tareas
+                tr
+                    td= tarea.area.charAt(0).toUpperCase() + tarea.area.slice(1)
+                    td= tarea.id
+                    td= tarea.titulo
+                    td= tarea.descripcion
+                    td= (estados.find(e => e.id === tarea.estado)).nombre    
+                    td= (prioridades.find(p => p.id === tarea.prioridad)).nombre
+                    td= (usuarios.find(u => u.id === tarea.usuarioAsignado) || {}).nombre || 'No asignado'
+
+                    td= new Date(tarea.fechaCreacion).toLocaleString()
+                    td= new Date(tarea.fechaVencimiento).toLocaleDateString()
+                    td
+                        a.btn.btn-editar(href=`/tareas/editar/${tarea.id}`, class='btn-editar') Editar
+                        form(action=`/tareas/eliminar/${tarea.id}`, method='POST', style='display:inline')
+                            button(type='submit', class='btn-eliminar', onclick='return confirm("¿Estás seguro de eliminar esta tarea?")') Eliminar
+
+    // Título del formulario de filtros
+    h3 Filtrado de Tareas por:
+
+    // Formulario de filtros
+    form(action='/tareas', method='GET', class='filter-form mt-3')
+        div.form-row
+            div.form-group.col-md-4
+                label(for='estado') Estado:
+                select(name='estado', id='estado', class='form-control')
+                    option(value='') Todas
+                    each estado in estados
+                        if estado.id.toString() === (filtros.estado || '')
+                            option(value=estado.id, selected=true)= estado.nombre
+                        else
+                            option(value=estado.id)= estado.nombre
+            div.form-group.col-md-4
+                label(for='prioridad') Prioridad:
+                select(name='prioridad', id='prioridad', class='form-control')
+                    option(value='') Todas
+                    each prioridad in prioridades
+                        if prioridad.id.toString() === (filtros.prioridad || '')
+                            option(value=prioridad.id, selected=true)= prioridad.nombre
+                        else
+                            option(value=prioridad.id)= prioridad.nombre
+            div.form-group.col-md-4
+                label(for='fecha') Fecha de Vencimiento:
+                input(type='date', name='fecha', id='fecha', value=(filtros.fecha || ''), class='form-control')
+        button(type='submit', class='btn btn-primary mt-2') Filtrar
+        a.btn.btn-limpiar(href='/tareas', class='btn-limpiar') Limpiar

@@ -1,0 +1,79 @@
+[
+  {
+    "area": "inventario",
+    "id": 2,
+    "titulo": "inventariar lapiceras",
+    "descripcion": "Contar cuántas lapiceras tengo",
+    "estado": 1,
+    "prioridad": 1,
+    "usuarioAsignado": 2,
+    "fechaCreacion": "2024-10-07T06:12:37.548Z",
+    "fechaVencimiento": "2024-10-08"
+  },
+  {
+    "id": 3,
+    "titulo": "inventariar lapiceras",
+    "descripcion": "Listar cantidad de lapiceras",
+    "estado": 2,
+    "prioridad": 1,
+    "usuarioAsignado": 2,
+    "fechaCreacion": "2024-10-07T15:28:36.661Z",
+    "fechaVencimiento": "2024-10-24",
+    "area": "ventas"
+  },
+  {
+    "id": 4,
+    "titulo": "Producción de lapiceras",
+    "descripcion": "Comenzar con la producción de lapiceras",
+    "estado": 1,
+    "prioridad": 2,
+    "usuarioAsignado": 2,
+    "fechaCreacion": "2024-10-07T15:31:30.756Z",
+    "fechaVencimiento": "2024-10-18",
+    "area": "producción"
+  },
+  {
+    "id": 5,
+    "titulo": "papel",
+    "descripcion": "10 Resmas A4",
+    "estado": 1,
+    "prioridad": 1,
+    "usuarioAsignado": 2,
+    "fechaCreacion": "2024-10-08T18:58:13.692Z",
+    "fechaVencimiento": "2024-10-20",
+    "area": "compras"
+  },
+  {
+    "id": 6,
+    "titulo": "Lapices",
+    "descripcion": "Inventariar lápices",
+    "estado": 2,
+    "prioridad": 1,
+    "usuarioAsignado": 4,
+    "fechaCreacion": "2024-10-08T21:04:26.008Z",
+    "fechaVencimiento": "2024-10-16",
+    "area": "inventario"
+  },
+  {
+    "id": 7,
+    "titulo": "Zapatos",
+    "descripcion": "Se requiere la producción inmendiata",
+    "estado": 1,
+    "prioridad": 3,
+    "usuarioAsignado": 5,
+    "fechaCreacion": "2024-10-08T21:07:21.109Z",
+    "fechaVencimiento": "2024-10-18",
+    "area": "producción"
+  },
+  {
+    "id": 8,
+    "titulo": "Pendrive",
+    "descripcion": "Vender pendrives",
+    "estado": 2,
+    "prioridad": 1,
+    "usuarioAsignado": 2,
+    "fechaCreacion": "2024-10-09T23:58:29.244Z",
+    "fechaVencimiento": "2024-10-12",
+    "area": "ventas"
+  }
+]
